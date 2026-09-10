@@ -1,69 +1,72 @@
-import Image from "next/image";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import Hero from "@/components/sections/Hero";
+import BannerPromo from "@/components/sections/BannerPromo";
+import ProductCatalog from "@/components/sections/ProductCatalog";
+import ProfitSimulator from "@/components/sections/ProfitSimulator";
+import Features from "@/components/sections/Features";
+import Steps from "@/components/sections/Steps";
+import Testimonials from "@/components/sections/Testimonials";
+import FAQ from "@/components/sections/FAQ";
+import FinalCTA from "@/components/sections/FinalCTA";
+import FloatingWhatsApp from "@/components/ui/FloatingWhatsApp";
+import DepositGuide from "@/components/sections/DepositGuide";
+import ReceiptPrintGuide from "@/components/sections/ReceiptPrintGuide";
+import DownloadApp from "@/components/sections/DownloadApp";
+import Container from "@/components/ui/Container";
+import Badge from "@/components/ui/Badge";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
+    <>
+      <Navbar />
+      <main>
+        <Hero />
+        <BannerPromo />
+        <ProductCatalog />
+        <ProfitSimulator />
+        <Features />
+        <Steps />
+
+        {/* Deposit & Cetak Struk Preview - requested integrated */}
+        <section className="bg-white py-14 sm:py-20 border-t border-border/40">
+          <Container>
+            <div className="mx-auto max-w-2xl text-center">
+              <Badge className="border-blue-200 bg-blue-50 text-blue-700">Operasional Loket • Deposit & Struk</Badge>
+              <h2 className="mt-4 text-3xl font-black tracking-tighter sm:text-4xl">Deposit Kilat & Struk Profesional.</h2>
+              <p className="mt-3 text-sm text-body">Dua hal paling penting buat loket: saldo gampang diisi & struk meyakinkan. Ini caranya di SBPAYS.</p>
+            </div>
+            <div className="mt-10 space-y-12">
+              <div>
+                <h3 className="text-lg font-black text-navy mb-4">Sistem Deposit & Mutasi Saldo</h3>
+                <DepositGuide />
+                <div className="mt-4 text-center"><a href="/deposit" className="inline-flex h-10 items-center rounded-full border bg-white px-6 text-sm font-bold">Lihat Halaman Deposit Lengkap →</a></div>
+              </div>
+              <div>
+                <h3 className="text-lg font-black text-navy mb-4">Fitur Cetak Multi-Printer — Thermal • Dot Matrix • Inkjet/Laserjet • Portable</h3>
+                <ReceiptPrintGuide />
+                <div className="mt-4 flex flex-wrap gap-2 justify-center text-xs">
+                  <a href="/panduan/konfigurasi-printer" className="inline-flex h-10 items-center rounded-full border bg-white px-6 text-sm font-bold">Semua Printer →</a>
+                  <a href="/panduan/setting-dot-matrix" className="inline-flex h-10 items-center rounded-full border bg-surface px-6 text-sm font-bold">Dot Matrix Continuous →</a>
+                  <a href="/panduan/setting-inkjet-laserjet" className="inline-flex h-10 items-center rounded-full border bg-surface px-6 text-sm font-bold">Inkjet A4/F4 →</a>
+                  <a href="/panduan/kertas-struk-ppob" className="inline-flex h-10 items-center rounded-full border bg-white px-6 text-sm font-bold">Kertas & Continuous Form →</a>
+                </div>
+              </div>
+              <div>
+                <h3 className="text-lg font-black text-navy mb-4">Aplikasi Android & Web Desktop</h3>
+                <DownloadApp />
+                <div className="mt-4 text-center"><a href="/download" className="inline-flex h-10 items-center rounded-full bg-navy px-6 text-sm font-bold text-white">Download & Login SBPAYS →</a></div>
+              </div>
+            </div>
+          </Container>
+        </section>
+
+        <Testimonials />
+        <FAQ />
+        <FinalCTA />
       </main>
-    </div>
+      <Footer />
+      <FloatingWhatsApp />
+    </>
   );
 }
