@@ -9,7 +9,6 @@ export const categories: ProductCategory[] = [
   { id: "pbb", name: "PBB & Pajak", slug: "pbb", description: "PBB P2 • E-Samsat • PGN • 120+ daerah", icon: "Building2", count: "120+ daerah", color: "from-slate-600 to-slate-800" },
   { id: "multifinance", name: "Multifinance", slug: "cicilan", description: "FIF BAF WOM HomeCredit • Fee s/d Rp2.700", icon: "CreditCard", count: "25+ leasing", color: "from-orange-400 to-red-500" },
   { id: "telkom", name: "Telkom & Internet", slug: "telkom", description: "IndiHome Iconnet MyRepublic • Rp500-1.100", icon: "Wifi", count: "15+ ISP", color: "from-blue-500 to-cyan-500" },
-  { id: "game", name: "Voucher Game", slug: "voucher-game", description: "ML FreeFire Roblox Steam • Margin bebas", icon: "Gamepad2", count: "50+ game", color: "from-fuchsia-500 to-purple-600" },
   { id: "tiket", name: "Tiket & Travel", slug: "tiket", description: "KAI Pelni • Fee Rp1.400-4.500", icon: "Ticket", count: "3 moda", color: "from-amber-500 to-yellow-500" },
   { id: "transfer", name: "Transfer & Tarik", slug: "transfer", description: "Tarik tunai & transfer antar bank • Fee Rp300", icon: "ArrowLeftRight", count: "All bank", color: "from-green-500 to-emerald-600" },
   { id: "lainnya", name: "Lainnya", slug: "lainnya", description: "SiCepat Pos • Topup • Tagihan lain", icon: "Grid3X3", count: "20+ layanan", color: "from-zinc-500 to-zinc-700" },

@@ -96,7 +96,7 @@ export default function Hero() {
                   <div className="mt-4 grid grid-cols-4 gap-2">
                     {[
                       {n:"PLN", c:"bg-amber-500"}, {n:"Pulsa",c:"bg-violet-500"}, {n:"OVO",c:"bg-emerald-500"}, {n:"PDAM",c:"bg-sky-500"},
-                      {n:"BPJS",c:"bg-rose-500"}, {n:"PBB",c:"bg-slate-700"}, {n:"Game",c:"bg-fuchsia-500"}, {n:"Lain",c:"bg-zinc-500"},
+                      {n:"BPJS",c:"bg-rose-500"}, {n:"PBB",c:"bg-slate-700"}, {n:"Tiket",c:"bg-amber-500"}, {n:"Lain",c:"bg-zinc-500"},
                     ].map(b=>(
                       <div key={b.n} className="flex flex-col items-center gap-1.5 rounded-xl border border-border/60 bg-surface p-3">
                         <div className={`h-8 w-8 rounded-lg ${b.c}`} />

@@ -1,11 +1,11 @@
 "use client";
 import { motion } from "framer-motion";
-import { UserPlus, Wallet, Store, TrendingUp, ArrowRight } from "lucide-react";
+import { UserPlus, Wallet, ShieldCheck, TrendingUp, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Badge from "@/components/ui/Badge";
 import { steps } from "@/data/content";
 
-const icons: Record<string, any> = { UserPlus, Wallet, Store, TrendingUp };
+const icons: Record<string, any> = { UserPlus, Wallet, ShieldCheck, TrendingUp };
 
 export default function Steps() {
   return (

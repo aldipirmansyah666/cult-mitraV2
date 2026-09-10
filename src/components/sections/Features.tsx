@@ -52,13 +52,13 @@ export default function Features() {
             </div>
           </div>
           <div className="rounded-3xl border bg-white p-6">
-            <div className="text-sm font-black text-navy">Bonus Fisik *</div>
+            <div className="text-sm font-black text-navy">Fitur Digital Lengkap</div>
             <ul className="mt-3 space-y-2 text-sm">
-              <li className="flex gap-2"><span>🧾</span> Cetak Struk & Nota Transaksi</li>
-              <li className="flex gap-2"><span>🏪</span> Spanduk loket Cult Mitra gratis</li>
-              <li className="flex gap-2"><span>📦</span> Sesuai ketentuan program</li>
+              <li className="flex gap-2"><span>📊</span> Riwayat & laporan transaksi real-time</li>
+              <li className="flex gap-2"><span>🧾</span> Kustom header/footer & cetak ulang struk</li>
+              <li className="flex gap-2"><span>🔔</span> Notifikasi saldo & status transaksi instan</li>
             </ul>
-            <div className="mt-3 text-xs text-muted">* syarat & ketentuan berlaku, cek dashboard mitra.</div>
+            <div className="mt-3 text-xs text-muted">Semua fitur digital langsung aktif setelah akun terverifikasi.</div>
           </div>
         </div>
       </Container>

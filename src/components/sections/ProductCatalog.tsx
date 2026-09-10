@@ -1,18 +1,15 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { Zap, Smartphone, Wallet, Heart, Droplets, Building2, CreditCard, Wifi, Gamepad2, Ticket, ArrowLeftRight, Grid3X3, Sparkles, Search, ArrowRight } from "lucide-react";
+import { Zap, Smartphone, Wallet, Heart, Droplets, Building2, CreditCard, Wifi, Ticket, ArrowLeftRight, Grid3X3, Sparkles, ArrowRight } from "lucide-react";
 import Container from "@/components/ui/Container";
 import Badge from "@/components/ui/Badge";
 import { categories } from "@/data/products";
 
-const iconMap: Record<string, any> = { Zap, Smartphone, Wallet, Heart, Droplets, Building2, CreditCard, Wifi, Gamepad2, Ticket, ArrowLeftRight, Grid3X3 };
-
-const filters = ["Semua", "Paling Cuan", "Tagihan", "Digital"];
+const iconMap: Record<string, any> = { Zap, Smartphone, Wallet, Heart, Droplets, Building2, CreditCard, Wifi, Ticket, ArrowLeftRight, Grid3X3 };
 
 export default function ProductCatalog() {
-  const [q, setQ] = useState("");
-  const [filter, setFilter] = useState("Semua");
   const [active, setActive] = useState<string | null>("pln");
   const detailRef = useRef<HTMLDivElement>(null);
   useEffect(() => {
@@ -20,20 +17,10 @@ export default function ProductCatalog() {
       detailRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }, [active]);
-  useEffect(() => {
-    if (filter !== "Semua" || q) {
-      window.scrollTo({ top: 0, behavior: "smooth" });
-    }
-  }, [filter]);
 
-  const list = categories.filter(c => {
-    const matchQ = c.name.toLowerCase().includes(q.toLowerCase()) || c.description.toLowerCase().includes(q.toLowerCase());
-    if (!matchQ) return false;
-    if (filter === "Paling Cuan") return !!c.popular;
-    if (filter === "Tagihan") return ["pln","pdam","bpjs","pbb","telkom","multifinance"].includes(c.id);
-    if (filter === "Digital") return ["pulsa","ewallet","game","tiket","transfer"].includes(c.id);
-    return true;
-  });
+  // Hybrid: homepage hanya preview 8 kategori populer/unggulan (3 popular + 5 terlaris)
+  const popularSorted = [...categories].sort((a, b) => Number(!!b.popular) - Number(!!a.popular));
+  const previewList = popularSorted.slice(0, 8);
 
   return (
     <section id="produk" className="bg-white py-14 sm:py-20">
@@ -44,20 +31,8 @@ export default function ProductCatalog() {
           <p className="mt-3 text-sm leading-relaxed text-body sm:text-[15px]">Katalog interaktif — klik kategori untuk lihat contoh produk & estimasi fee. Data fee final ada di halaman Fee internal Cult Mitra.</p>
         </div>
 
-        <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex items-center gap-2">
-            {filters.map(f=> (
-              <button key={f} onClick={()=>setFilter(f)} className={`rounded-full px-4 py-2 text-xs font-bold transition ${filter===f ? "bg-navy text-white shadow" : "bg-surface hover:bg-white border border-border text-body"}`}>{f}</button>
-            ))}
-          </div>
-          <div className="relative">
-            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted" />
-            <input value={q} onChange={e=>setQ(e.target.value)} placeholder="Cari: PLN, PDAM, OVO..." className="h-10 w-full sm:w-[280px] rounded-full border border-border bg-surface pl-9 pr-4 text-sm outline-none focus:bg-white focus:border-navy/20" />
-          </div>
-        </div>
-
         <div className="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-4">
-          {list.map((c, i)=>{
+          {previewList.map((c, i)=>{
             const Icon = iconMap[c.icon] || Grid3X3;
             const isActive = active===c.id;
             return (
@@ -81,6 +56,13 @@ export default function ProductCatalog() {
               </motion.button>
             );
           })}
+        </div>
+
+        <div className="mt-8 flex flex-col items-center gap-3">
+          <Link href="/produk" className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-navy px-8 text-sm font-black text-white shadow-[0_8px_24px_rgba(10,25,49,0.18)] hover:bg-navy/90 transition-colors">
+            Lihat Katalog Lengkap 300+ Layanan <ArrowRight className="h-4 w-4" />
+          </Link>
+          <p className="text-xs text-muted">Menampilkan 8 kategori terpopuler • <Link href="/produk" className="font-bold text-primary hover:underline">Jelajahi 11 kategori lengkap + pencarian</Link> di halaman katalog.</p>
         </div>
 
         <AnimatePresence>
